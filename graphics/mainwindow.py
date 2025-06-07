@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import alphavets.symbolsController
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -70,8 +70,12 @@ class Ui_MainWindow(object):
                                                                         self.Prefiks_lineedit.text()
                                                                         ))
     
-    def onpress_okbutton(self, isAlwaysActive, isAlwaysAutostart, isActive, Prefiks):
-        print(isAlwaysActive, isAlwaysAutostart, isActive, Prefiks)    
+    def onpress_okbutton(self, isAlwaysActive, isAlwaysAutostart, isActive, prefiks):    
+        self._controller = alphavets.symbolsController.controllerKeyboard(prefiks)
+        if isActive:
+            self._controller.start()
+        else:
+            self._controller.stop()
 
 
     def retranslateUi(self, MainWindow):
