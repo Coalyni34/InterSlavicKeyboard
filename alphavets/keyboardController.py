@@ -13,12 +13,13 @@ class controllerKeyboard(object):
         'л': 'љ',
         'н': 'њ'
     }
+    
 
-    def __init__(self):
+    def __init__(self, prefiks):
         self.listener = None
         self.buffer = []  
         self.kbd = Controller() 
-        self.prefix_key = '\\'
+        self.prefix_key = prefiks
     
     def start(self):
         self.listener = keyboard.Listener(on_press=self.on_press)
@@ -33,8 +34,6 @@ class controllerKeyboard(object):
                     self.replace_previous_char()
                 elif key == Key.space:
                     self.buffer.clear()
-                elif key == Key.esc:
-                    return False
         except Exception as e:
             print(f"Ошибка: {e}")
 
