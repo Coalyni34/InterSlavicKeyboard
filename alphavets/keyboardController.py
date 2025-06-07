@@ -15,10 +15,16 @@ class controllerKeyboard(object):
     }
     
 
-    def __init__(self, prefiks):
+    def __init__(self, prefiks, isPrefiksActive, isAlwaysActive, isAutoStart, isProgramActive):
         self.listener = None
         self.buffer = []  
         self.kbd = Controller() 
+
+        self.is_prefiks_active = isPrefiksActive
+        self.is_always_active = isAlwaysActive
+        self.is_auto_start = isAutoStart
+        self.is_program_active = isProgramActive
+
         self.prefix_key = prefiks
     
     def start(self):
