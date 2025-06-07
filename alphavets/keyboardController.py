@@ -15,15 +15,10 @@ class controllerKeyboard(object):
     }
     
 
-    def __init__(self, prefiks, isPrefiksActive, isAlwaysActive, isAutoStart, isProgramActive):
+    def __init__(self, prefiks):
         self.listener = None
         self.buffer = []  
         self.kbd = Controller() 
-
-        self.is_prefiks_active = isPrefiksActive
-        self.is_always_active = isAlwaysActive
-        self.is_auto_start = isAutoStart
-        self.is_program_active = isProgramActive
 
         self.prefix_key = prefiks
     
@@ -31,6 +26,10 @@ class controllerKeyboard(object):
         self.listener = keyboard.Listener(on_press=self.on_press)
         self.listener.start()
         self.listener.join()
+
+    def stop(self):
+        self.listener.stop()
+
     def on_press(self, key):
         try:
             if hasattr(key, 'char') and key.char:
