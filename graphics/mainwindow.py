@@ -2,6 +2,7 @@ import json
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
 import alphavets
+from alphavets import symbolsController
 from PyQt5.QtWidgets import QApplication
 
 class Ui_MainWindow(object):
