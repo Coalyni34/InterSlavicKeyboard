@@ -1,5 +1,5 @@
 # English
-## This is a simple program for better typing iun Interslavic languafe
+## This is a simple program for better typing Interslavic languafe
 ## How to use it?
 ![alt text](image.png)
 
