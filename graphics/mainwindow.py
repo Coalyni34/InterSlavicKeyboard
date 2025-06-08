@@ -71,12 +71,8 @@ class Ui_MainWindow(object):
                                                                         self.Prefiks_lineedit.text()
                                                                         ))
     
-    def onpress_okbutton(self, isAlwaysActive, isAlwaysAutostart, isActive, prefiks):    
-        self._controller = alphavets.symbolsController.controllerKeyboard(prefiks)
-        if isActive:
-            self._controller.start()
-        else:
-            self._controller.stop()
+    def onpress_okbutton(self, isAlwaysActive, isAlwaysAutostart, isActive, prefiks):   
+        return
 
 
     def retranslateUi(self, MainWindow):

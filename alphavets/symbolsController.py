@@ -38,7 +38,6 @@ class controllerKeyboard(object):
             return
         
         self.running = False
-        self.listener_thread = threading.Thread(target=self.listener.stop)
         self.listener.stop()
         self.buffer = []
 
