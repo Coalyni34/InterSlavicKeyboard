@@ -2,14 +2,13 @@ import json
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication
-import alphavets
-
+from alphavets import jsonReader, symbolsController
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(268, 156)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("Flag_of_Interslavic.svg.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("inter.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -66,8 +65,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        self.Ok_button.clicked.connect(lambda: self.onpress_okbutton(   self.Always_autostart_chekbox.isChecked(),
-                                                                        self.Switch_programm_chekbox.isChecked(),
+        self.Ok_button.clicked.connect(lambda: self.onpress_okbutton(   self.Switch_programm_chekbox.isChecked(),
                                                                         self.Prefiks_lineedit.text()
                                                                         ))
         
@@ -78,21 +76,21 @@ class Ui_MainWindow(object):
             self.Switch_programm_chekbox.setChecked(loaded_settings["isActive"])
             self.setupKeyboardController()
         else:
-            _reader = alphavets.jsonReader.jsonReaderClass()
-            _reader.saveSettings(True, True, '\\')
+            _reader = jsonReader.jsonReaderClass()
+            _reader.saveSettings(True, '\\')
             with open('settings.json', 'r', encoding='utf-8') as f:
                 loaded_settings = json.load(f)
             self.Prefiks_lineedit.setText(loaded_settings["Prefiks"])
             self.Switch_programm_chekbox.setChecked(loaded_settings["isActive"])
             self.setupKeyboardController()
     
-    def onpress_okbutton(self, isAlwaysAutostart, isActive, prefiks):   
-        _reader = alphavets.jsonReader.jsonReaderClass()
-        _reader.saveSettings(isActive, isAlwaysAutostart, prefiks)
+    def onpress_okbutton(self, isActive, prefiks):   
+        _reader = jsonReader.jsonReaderClass()
+        _reader.saveSettings(isActive, prefiks)
         QApplication.quit()
     
     def setupKeyboardController(self):
-        controller = alphavets.symbolsController.controllerKeyboard(self.Prefiks_lineedit.text())
+        controller = symbolsController.controllerKeyboard(self.Prefiks_lineedit.text())
         if self.Switch_programm_chekbox.isChecked():
             controller.start()
             print(self.Switch_programm_chekbox.isChecked())
