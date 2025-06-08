@@ -1,9 +1,11 @@
 import json
+import sys
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
 import alphavets
 from alphavets import symbolsController
 from PyQt5.QtWidgets import QApplication
+from pyautostart import AutoStart
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -120,6 +122,10 @@ class Ui_MainWindow(object):
         if self.Switch_programm_chekbox.isChecked():
             controller.start()
             print(self.Switch_programm_chekbox.isChecked())
+        if self.Always_autostart_chekbox.isChecked():
+            if getattr(sys, 'frozen', False):
+                app_path = sys.executable
+            autostart = AutoStart(name="InterSlavicKeyboard", path=app_path)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
