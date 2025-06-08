@@ -144,6 +144,7 @@ Sada možete pisati međuslavenska slova: c\ (ili vaš prefiks) → č
 ## Се есть простъ програма въ помо́щь писанїѥ словѣньскыми писмены
 ## Кѣмо употреблѧти?
 ![alt text](image.png)
+
 Пиши єдину знаку-предъставку, напримѣръ: \ или инаку.
 Послѣ тѣмь дѣи програма, отметнꙋвъ по́лє нѝже (аще не єсть дѣѧща), и натисни на кнꙋпѫ OK.
 Програма затворитьсѧ, и по томꙋ надобно єѧ второ́во запꙋстити.
@@ -154,6 +155,7 @@ Sada možete pisati međuslavenska slova: c\ (ili vaš prefiks) → č
 ## To je jadnora program za lóše pisaće w medźusłowjanskim rěču
 ## Kak to wužiwać?
 ![alt text](image.png)
+
 Zapodaj jednoliterowy prefiks, na přikład: \ abo druhi znak.
 Potom zmóžń program pola zakliknjenja (jeli njeje aktiwny) a klikń na tłóčatko OK.
 Program so začini, tohodla dyrbiš jón znowa startować.
@@ -164,6 +166,7 @@ Nětko móžeš pisać medźusłowjanske znamješka: c\ (abo twój prefiks) → 
 ## Ĉi tiu estas simpla programo por pli facile tajpi en la interslava lingvo
 ## Kiel uzi ĝin?
 ![alt text](image.png)
+
 Enigu unu-simbolan prefikson, ekzemple: \ aŭ alian.
 Tiam aktivigu la programon markante la suban skatolon (se ĝi ne estas aktiva) kaj alklaku la butonon OK.
 La programo fermos sin, do vi devos lanĉi ĝin denove.
