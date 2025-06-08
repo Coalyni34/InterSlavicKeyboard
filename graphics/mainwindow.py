@@ -1,16 +1,13 @@
 import json
-import sys
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
-import alphavets
-from alphavets import symbolsController
 from PyQt5.QtWidgets import QApplication
-from pyautostart import AutoStart
+import alphavets
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(268, 217)
+        MainWindow.resize(268, 156)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("Flag_of_Interslavic.svg.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -26,36 +23,22 @@ class Ui_MainWindow(object):
         font.setPointSize(11)
         self.Keyboard_label.setFont(font)
         self.Keyboard_label.setObjectName("Keyboard_label")
-        self.Aktiva_label = QtWidgets.QLabel(self.centralwidget)
-        self.Aktiva_label.setGeometry(QtCore.QRect(10, 50, 151, 16))
-        font = QtGui.QFont()
-        font.setFamily("Times New Roman")
-        font.setPointSize(11)
-        self.Aktiva_label.setFont(font)
-        self.Aktiva_label.setObjectName("Aktiva_label")
-        self.Always_autostart_chekbox = QtWidgets.QCheckBox(self.centralwidget)
-        self.Always_autostart_chekbox.setGeometry(QtCore.QRect(10, 70, 221, 16))
-        font = QtGui.QFont()
-        font.setFamily("Times New Roman")
-        font.setPointSize(10)
-        self.Always_autostart_chekbox.setFont(font)
-        self.Always_autostart_chekbox.setObjectName("Always_autostart_chekbox")
         self.Switch_label = QtWidgets.QLabel(self.centralwidget)
-        self.Switch_label.setGeometry(QtCore.QRect(10, 110, 161, 16))
+        self.Switch_label.setGeometry(QtCore.QRect(10, 50, 161, 16))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(11)
         self.Switch_label.setFont(font)
         self.Switch_label.setObjectName("Switch_label")
         self.Switch_programm_chekbox = QtWidgets.QCheckBox(self.centralwidget)
-        self.Switch_programm_chekbox.setGeometry(QtCore.QRect(10, 130, 211, 17))
+        self.Switch_programm_chekbox.setGeometry(QtCore.QRect(10, 70, 211, 17))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(10)
         self.Switch_programm_chekbox.setFont(font)
         self.Switch_programm_chekbox.setObjectName("Switch_programm_chekbox")
         self.Ok_button = QtWidgets.QPushButton(self.centralwidget)
-        self.Ok_button.setGeometry(QtCore.QRect(10, 150, 75, 23))
+        self.Ok_button.setGeometry(QtCore.QRect(10, 90, 75, 23))
         self.Ok_button.setObjectName("Ok_button")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(10, 30, 47, 13))
@@ -65,19 +48,12 @@ class Ui_MainWindow(object):
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(90, 150, 181, 16))
+        self.label_2.setGeometry(QtCore.QRect(90, 90, 181, 16))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(10)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(10, 90, 221, 16))
-        font = QtGui.QFont()
-        font.setFamily("Times New Roman")
-        font.setPointSize(10)
-        self.label_3.setFont(font)
-        self.label_3.setObjectName("label_3")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 268, 21))
@@ -99,7 +75,6 @@ class Ui_MainWindow(object):
             with open('settings.json', 'r', encoding='utf-8') as f:
                 loaded_settings = json.load(f)
             self.Prefiks_lineedit.setText(loaded_settings["Prefiks"])
-            self.Always_autostart_chekbox.setChecked(loaded_settings["isAutoStart"])
             self.Switch_programm_chekbox.setChecked(loaded_settings["isActive"])
             self.setupKeyboardController()
         else:
@@ -108,7 +83,6 @@ class Ui_MainWindow(object):
             with open('settings.json', 'r', encoding='utf-8') as f:
                 loaded_settings = json.load(f)
             self.Prefiks_lineedit.setText(loaded_settings["Prefiks"])
-            self.Always_autostart_chekbox.setChecked(loaded_settings["isAutoStart"])
             self.Switch_programm_chekbox.setChecked(loaded_settings["isActive"])
             self.setupKeyboardController()
     
@@ -122,20 +96,13 @@ class Ui_MainWindow(object):
         if self.Switch_programm_chekbox.isChecked():
             controller.start()
             print(self.Switch_programm_chekbox.isChecked())
-        if self.Always_autostart_chekbox.isChecked():
-            if getattr(sys, 'frozen', False):
-                app_path = sys.executable
-            autostart = AutoStart(name="InterSlavicKeyboard", path=app_path)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Interslavic Keyboard"))
         self.Keyboard_label.setText(_translate("MainWindow", "Tipkovnica \\ Типковница"))
-        self.Aktiva_label.setText(_translate("MainWindow", "Početi \\ Почети"))
-        self.Always_autostart_chekbox.setText(_translate("MainWindow", "početi avtomatično aplodovanje \\ почети"))
         self.Switch_label.setText(_translate("MainWindow", "Prěključati \\ Прєкључати"))
         self.Switch_programm_chekbox.setText(_translate("MainWindow", "Programa aktivny \\ Програма актвины"))
         self.Ok_button.setText(_translate("MainWindow", "ОК"))
         self.label.setText(_translate("MainWindow", "Prefiks:"))
         self.label_2.setText(_translate("MainWindow", "(You will need to start app again)"))
-        self.label_3.setText(_translate("MainWindow", "почети атвоматично аплодованје"))
