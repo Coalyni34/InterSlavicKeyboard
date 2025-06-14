@@ -103,4 +103,4 @@ class Ui_MainWindow(object):
         self.Switch_programm_chekbox.setText(_translate("MainWindow", "Programa aktivny \\ Програма актвины"))
         self.Ok_button.setText(_translate("MainWindow", "ОК"))
         self.label.setText(_translate("MainWindow", "Prefiks:"))
-        self.label_2.setText(_translate("MainWindow", "(You will need to start app again)"))
+        self.label_2.setText(_translate("MainWindow", "(Perezaładujte program)"))
