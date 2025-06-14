@@ -5,15 +5,15 @@ from pynput.keyboard import Key, Controller
 class controllerKeyboard(object):
 
     symbols = {
-        'c': 'č',
-        'e': 'ě',
-        's': 'š', 
-        'z': 'ž',
-        'э': 'є',
-        'й': 'j', 
-        'л': 'љ',
-        'н': 'њ'
-    }
+    'c': 'č', 'C': 'Č',
+    'e': 'ě', 'E': 'Ě',
+    's': 'š', 'S': 'Š',
+    'z': 'ž', 'Z': 'Ž',
+    'э': 'є', 'Э': 'Є',
+    'й': 'j', 'Й': 'J',
+    'л': 'љ', 'Л': 'Љ',
+    'н': 'њ', 'Н': 'Њ'
+}
     
 
     def __init__(self, prefiks):
